@@ -37,4 +37,6 @@ else
     game.position_override(GameCondition.convertsymbol(input2), "O")
 end
 puts "BELOW"
-p GameCondition.CheckWin
+game
+p game.checkWin
+p game.array
