@@ -1,7 +1,7 @@
 class Players
   attr_accessor :name
   attr_accessor :symbol
-  attr_writer :count
+  attr_accessor :count
 
   def initialize(name, symbol, count=0)
     @name = name
