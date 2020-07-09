@@ -3,7 +3,7 @@ class Players
   attr_accessor :symbol
   attr_accessor :count
 
-  def initialize(name, symbol, count=0)
+  def initialize(name, symbol, count = 0)
     @name = name
     @symbol = symbol
     @count = count
@@ -11,9 +11,5 @@ class Players
 
   def winner_counter
     @count += 1
-  end
-
-  def player_welcome
-    puts "You're welcome #{@name} #{@symbol}" #X
   end
 end
