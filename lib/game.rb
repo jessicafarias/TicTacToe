@@ -1,7 +1,7 @@
 class GameCondition
     attr_accessor :array
     @hash= {"a"=>0, "b"=>1, "c"=>2, "d"=>3, "e"=>4,"f"=>5,"g"=>6, "h"=>7, "i"=>8}    
-
+    
     def initialize(array=["a","b","c","d","e","f","g","h","i"], count=1)
       @array=array
       @count= count
@@ -14,8 +14,14 @@ class GameCondition
 
     public
     def position_override(position, symbol)
-      @count +=1
-      @array[position]=symbol
+      if(@array[position]!="X") && (@array[position]!="O")
+        @count +=1
+        @array[position]=symbol
+        return false
+      else
+        puts "Position no available"
+      end
+      true
     end
 
     public
@@ -42,7 +48,7 @@ class GameCondition
         print "#{player1} (Player 1) wins"
         player1
       else
-        print "Nobadywins"
+        print "Nobody wins"
         return
       end
     end

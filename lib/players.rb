@@ -14,6 +14,6 @@ class Players
   end
 
   def player_welcome
-    puts "You welcome #{@name} #{@symbol}"
+    puts "You're welcome #{@name} #{@symbol}" #X
   end
 end
