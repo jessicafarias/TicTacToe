@@ -9,19 +9,18 @@ class GameCondition
   end
 
   def self.convertsymbol(position)
-    @hash.has_key?(position) ? @hash[position] : 'No Valid'
+    @hash.key?(position) ? @hash[position] : 'No Valid'
   end
 
   def position_override(position, symbol)
     if (@array[position] != 'X') && (@array[position] != 'O')
       @count += 1
       @array[position] = symbol
-      return true
+      true
     else
       puts 'Position no available'
-      return false
+      false
     end
-    false
   end
 
   def check_win
