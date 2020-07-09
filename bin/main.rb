@@ -21,10 +21,12 @@ while rematch == true
       game.printboard
       puts "#{player1.name} choose a position \n\n"
       input1 = gets.chomp
-      if GameCondition.convertsymbol(input1) != 'No Valid'
+      if GameCondition.convertsymbol(input1) != "No Valid"
         override = game.position_override(GameCondition.convertsymbol(input1), 'X')
+      else
+        puts 'Invalid character!'
       end
-      break unless override
+      break if override
     end
 
     break if game.check_win
@@ -33,10 +35,12 @@ while rematch == true
       game.printboard
       puts "#{player2.name} choose a position \n\n"
       input2 = gets.chomp
-      unless GameCondition.convertsymbol(input2) == 'No Valid'
+      if GameCondition.convertsymbol(input2) != "No Valid"
         override = game.position_override(GameCondition.convertsymbol(input2), 'O')
+      else
+        puts 'Invalid character!'
       end
-      break unless override
+      break if override
     end
     p game.check_win
 
@@ -50,12 +54,12 @@ while rematch == true
 
   print 'Do you want rematch Yes or No'
   match = gets.chomp
-  if match == ('No' || 'no')
-    rematch = false
-    print 'Goodbye'
-  else
+  if match.upcase == ('YES')
     rematch = true
     game.array = %w[a b c d e f g h i]
     game.count = 1
+  else
+    rematch = false
+    print 'Goodbye'
   end
 end
