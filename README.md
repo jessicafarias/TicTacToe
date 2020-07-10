@@ -53,7 +53,7 @@ To get a local copy up and running follow these simple example steps.
 3. Enter bin/main.rb to start the game.
 
 ## Instruction
-1. Enter your and your partner's name in the terminal when you start the game. Player 1 is          tomatically assign X symbol and O to player 2
+1. Enter your and your partner's name in the terminal when you start the game. Player 1 is automatically assign X symbol and O to player 2
 2. Choose charater a to i to play the game.
 3. When you win or lose you can choose to continue or end the game.
 4. You win when 3 of your symbol align vertically or horizontally and or diagonally.
