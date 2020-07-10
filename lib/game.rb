@@ -14,13 +14,8 @@ class GameCondition
   end
 
   def position_override?(position, symbol)
-    if (@array[position] != 'X') && (@array[position] != 'O')
-      @count += 1
-      @array[position] = symbol
-      #true
-    #else
-      #false
-    end
+    @count += 1
+    return @array[position] = symbol unless (@array[position] == 'X') && (@array[position] == 'O')
   end
 
   def check_win?
@@ -30,22 +25,21 @@ class GameCondition
       return @array[@win_array[i][0]] if comparison1 && comparison2
     end
     return true if @count == 10
+
     false
   end
 
   def printboard
-    "__#{@array[0]}_|_#{@array[1]}_|_#{@array[2]}__\n"+
-    "__#{@array[3]}_|_#{@array[4]}_|_#{@array[5]}__\n"+
-    "  #{@array[6]} | #{@array[7]} | #{@array[8]}\n"
+    "__#{@array[0]}_|_#{@array[1]}_|_#{@array[2]}__\n" \
+      "__#{@array[3]}_|_#{@array[4]}_|_#{@array[5]}__\n" \
+      "  #{@array[6]} | #{@array[7]} | #{@array[8]}\n"
   end
 
-  def who_is_winning(symbol, player1, player2)
+  def who_is_winning(symbol, _player1, _player2)
     if symbol == 'O'
-      "player2"
+      'player2'
     elsif symbol == 'X'
-      "player1"
-    else
-      nil
+      'player1'
     end
   end
 end

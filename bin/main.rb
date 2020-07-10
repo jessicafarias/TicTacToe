@@ -45,19 +45,19 @@ while rematch == true
   print game.printboard
 
   var = game.who_is_winning(game.check_win?, player1.name, player2.name)
- unless(var.nil?)
-  print var == "player1" ? "\n#{player1.name} (player1) wins" : "\n#{player2.name} (player2) wins"
- else
-  print 'Nobody wins'
- end
+  if var.nil?
+    print 'Nobody wins'
+  else
+    print var == 'player1' ? "\n#{player1.name} (player1) wins" : "\n#{player2.name} (player2) wins"
+  end
 
-player1.winner_counter if "player1" == var
-player2.winner_counter if "player2" == var
+  player1.winner_counter if var == 'player1'
+  player2.winner_counter if var == 'player2'
 
-puts "\n\n RESULTS= P1=" + player1.count.to_s + ' vs P2=' + player2.count.to_s + ''
-print 'Do you want rematch write Yes'
+  puts "\n\n RESULTS= P1=" + player1.count.to_s + ' vs P2=' + player2.count.to_s + ''
+  print 'Do you want rematch write Yes'
 
-match = gets.chomp
+  match = gets.chomp
   if match.upcase == 'YES'
     rematch = true
     game.array = %w[a b c d e f g h i]
