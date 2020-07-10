@@ -21,11 +21,15 @@ while rematch == true
       print game.printboard
       print "#{player1.name} choose a position \n\n"
       input1 = gets.chomp
+      @position_flag = false
       if GameCondition.convertsymbol(input1) != 'No Valid'
-        override = game.position_override?(GameCondition.convertsymbol(input1), 'X')
+        override = game.position_override?(GameCondition.convertsymbol(input1), 'O')
+        @position_flag = true
       else
-        puts 'Position no available'
+        puts 'Invald symbol!'
       end
+      puts(@position_flag && override ? '' : 'Position no available')
+      @position_flag = false
       break if override
     end
     break if game.check_win?
@@ -34,11 +38,16 @@ while rematch == true
       print game.printboard
       puts "#{player2.name} choose a position \n\n"
       input2 = gets.chomp
+
+      @position_flag = false
       if GameCondition.convertsymbol(input2) != 'No Valid'
         override = game.position_override?(GameCondition.convertsymbol(input2), 'O')
+        @position_flag = true
       else
-        puts 'Invalid character!'
+        puts 'Invald symbol!'
       end
+      puts(@position_flag && override ? '' : 'Position no available')
+      @position_flag = false
       break if override
     end
   end

@@ -15,7 +15,7 @@ class GameCondition
 
   def position_override?(position, symbol)
     @count += 1
-    return @array[position] = symbol unless (@array[position] == 'X') && (@array[position] == 'O')
+    return @array[position] = symbol if (@array[position] != 'X') && (@array[position] != 'O')
   end
 
   def check_win?
